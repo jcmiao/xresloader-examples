@@ -1,0 +1,1 @@
+g++ -g -Wall -std=c++11 -o genstruct *.cc *.cpp -ID:\src\protobuf-3.15.1\src -LD:\src\protobuf-3.15.1\cmake -lprotobuf

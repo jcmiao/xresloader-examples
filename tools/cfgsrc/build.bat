@@ -1,0 +1,1 @@
+g++ -g -Wall -o test .\main.cpp

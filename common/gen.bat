@@ -1,0 +1,1 @@
+protoc -o sample.pb --cpp_out ..\server\pbsrc -I ./proto/ -I ./protocols/extensions -I ./xres-code-generator/pb_extension ./protocols/extensions/google/protobuf/descriptor.proto ./proto/*.proto ./xres-code-generator/pb_extension/xrescode_extensions_v3.proto

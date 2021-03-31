@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package base;
+
+message Base
+{
+    uint32 id = 1;
+    string name = 2;
+}
+
+enum ItemType
+{
+    TYPE_UNKNOWN = 0;
+    TYPE_A = 1;
+    TYPE_B = 2;
+    TYPE_C = 3;
+}

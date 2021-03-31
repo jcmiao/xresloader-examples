@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <global>
+        <work_dir desc="工作目录，相对于当前xml的目录，我们的Excel文件放在这里">.</work_dir>
+        <xresloader_path desc="指向前面下载的 转表工具-xresloader，相对于当前xml的目录">xresloader-2.10.2.jar</xresloader_path>
+
+        <proto desc="协议类型，-p选项">protobuf</proto>
+        <output_type desc="输出类型，对应-t选项，输出二进制">bin</output_type>
+        <output_type desc="多种输出时可以额外定义某个节点的重命名规则" rename="/(?i)\.bin$/\.json/">json</output_type>
+        <proto_file desc="协议描述文件，-f选项">../common/sample.pb</proto_file>
+
+        <output_dir desc="输出目录，-o选项">sample-data</output_dir>
+        <data_src_dir desc="数据源目录，-d选项"></data_src_dir>
+
+        <java_option desc="java选项-最大内存限制2GB">-Xmx2048m</java_option>
+        <java_option desc="java选项-客户端模式">-client</java_option>
+        <field_tags>--field_tags=client</field_tags>
+
+        <default_scheme name="KeyRow" desc="默认scheme模式参数-Key行号，对应上面Id、Level、CostType、CostValue那一行">2</default_scheme>
+        <option desc="全局自定义选项" name="美化文本输出，缩进为2个空格">--pretty 2</option>
+    </global>
+    
+    <groups desc="分组信息（可选）">
+        <group id="client" name="客户端"></group>
+        <group id="server" name="服务器"></group>
+    </groups>
+
+    <category desc="类信息（用于GUI工具的树形结构分类显示）">
+        <tree id="all_cats" name="大分类">
+            <tree id="kind" name="角色配置"></tree>
+            <tree id="objects" name="道具配置"></tree>
+            <tree id="quest" name="任务配置"></tree>
+        </tree>
+    </category>
+
+    <list>
+        <item name="升级表" cat="kind" class="client server">
+            <scheme name="DataSource" desc="数据源(文件名|表名|数据起始行号,数据起始列号)">excel/role_tables.xlsx|upgrade_10001|3,1</scheme>
+            <scheme name="ProtoName" desc="协议名">role_upgrade_cfg</scheme>
+            <scheme name="OutputFile" desc="输出文件名">role_upgrade_cfg.bin</scheme>
+        </item>
+        <item name="道具表" cat="objects" class="client server">
+            <scheme name="DataSource" desc="数据源(文件名|表名|数据起始行号,数据起始列号)">excel/objects.xlsx|objects|4,1</scheme>
+            <scheme name="ProtoName" desc="协议名">objects_cfg</scheme>
+            <scheme name="OutputFile" desc="输出文件名">objects_cfg.bin</scheme>
+            <option desc="自定义选项" name="移除空列表项">--enable-empty-list</option>
+        </item>
+        <item name="任务表" cat="quest" class="client server">
+            <scheme name="DataSource" desc="数据源(文件名|表名|数据起始行号,数据起始列号)">excel/quests.xlsx|quests|3,1</scheme>
+            <scheme name="ProtoName" desc="协议名">quests_cfg</scheme>
+            <scheme name="OutputFile" desc="输出文件名">quests_cfg.bin</scheme>
+        </item>
+    </list>
+
+    <gui>
+        <set_name desc="这个脚本用于修改树形节点的显示数据,便于策划核对具体的表名">
+            if (item_data.file) {
+                item_data.name += " (" + item_data.file.match(/([^.]+)\.\w+$/)[1] + ")"
+            }
+        </set_name>
+
+        <script 
+            name="delay" 
+            type="text/javascript"
+            description="空事件，用于延迟">
+            require("timers").setTimeout(()=>{resolve()}, 1000);
+        </script>
+
+        <script 
+            name="diffchange" 
+            type="text/javascript"
+            description="刷新变更状态，用于计算本地表格xlsx与git中的差异">
+            if (data.diffdone == true)
+            {
+                reject();
+            }
+            else
+            {
+                data.diffdone = true;
+                var os = require("os");
+                var spawn = require("child_process").spawn;
+                if (os.type().substr(0, 7).toLowerCase() == "windows") 
+                {
+                    var exec = spawn("py", ["PrepareGUI.py"], 
+                    {
+                        cwd: work_dir,
+                        encoding: 'utf-8',
+                        shell: true
+                    });
+                    exec.stdout.on("data", function(data) 
+                    {
+                        log_info(data);
+                    });
+                    exec.stderr.on("data", function(data) 
+                    {
+                        log_error(data);
+                    });
+                    exec.on("error", function(data) 
+                    {
+                        log_error(data.toString());
+                        reject("Execute PrepareGUI.py Failed." + data.toString());
+                    });
+                    exec.on("exit", function(code) 
+                    {
+                        if (code === 0) 
+                        {
+                            resolve();
+                        } else 
+                        {
+                            reject("Execute PrepareGUI.py Failed.");
+                        }
+                    });
+                } 
+                else 
+                {
+                    resolve();
+                }
+            }
+        </script>
+    </gui>
+</root>

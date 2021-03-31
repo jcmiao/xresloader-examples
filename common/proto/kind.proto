@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+import "xresloader.proto";
+import "xrescode_extensions_v3.proto";
+// xresloader的发布页面 https://github.com/xresloader/xresloader/releases 下载 protocols.zip ，即可获取xresloader.proto
+
+option cc_enable_arenas = true;
+
+enum cost_type {
+  EN_CT_UNKNOWN = 0;
+  EN_CT_MONEY   = 10001 [(org.xresloader.enum_alias) = "金币"];
+  EN_CT_DIAMOND = 10101 [(org.xresloader.enum_alias) = "钻石"];
+}
+
+message role_upgrade_cfg {
+  option (xrescode.loader) = {
+    file_path : "../config/sample-data/role_upgrade_cfg.bin"
+    // file_list: "filelist.txt"
+    indexes : {
+        fields : "Id"
+        index_type : EN_INDEX_KL // Key - List 类型索引，映射关系为: (Id) => list<role_upgrade_cfg>
+    }
+    indexes : {
+        fields : "Id"
+        fields : "Level"
+        index_type : EN_INDEX_KV // Key - Value 类型索引，映射关系为: (Id, Level) => role_upgrade_cfg
+    }
+    // 允许多个索引，索引命名是所有的 [fields 字段].join("_")，也可以通过name属性自定义
+    tags : "client"
+    tags : "server"
+};
+  uint32 Id = 1;
+  uint32 Level = 2;
+  uint32 CostType = 3 [
+    (org.xresloader.verifier) = "cost_type", // 这里等同于在Excel中使用 @cost_type 标识
+    (org.xresloader.field_description) = "Refer to cost_type"
+  ];
+  int32 CostValue = 4;
+  int32 ScoreAdd = 5;
+}
+
+message ObjectLabel
+{
+  uint32 L1 = 1;
+  uint32 L2 = 2;
+  uint32 L3 = 3;
+  uint32 L4 = 4;
+  repeated uint32 L5 = 5;
+}
+
+message objects_cfg {
+  option (xrescode.loader) = {
+    file_path : "../config/sample-data/objects_cfg.bin"
+    // file_list: "filelist.txt"
+    indexes : {
+        fields : "Id"
+        index_type : EN_INDEX_KV 
+    }
+    indexes : {
+        fields : "Type"
+        index_type : EN_INDEX_IL
+    }
+    // 允许多个索引，索引命名是所有的 [fields 字段].join("_")，也可以通过name属性自定义
+    tags : "client"
+    tags : "server"
+};
+  uint32 Id = 1;
+  uint32 Type = 2;
+  string Name = 3;
+  string Desc = 4 [(org.xresloader.field_tags) = "server"];
+  repeated uint32 Attr = 5 [(org.xresloader.field_separator) = "*"];
+  map<uint32, uint32> LevelExp = 6 [(org.xresloader.field_separator) = "|"];
+  ObjectLabel Labels = 7 [(org.xresloader.field_separator) = "-"];
+  oneof Sell {
+    uint32 gold = 11;
+    uint32 exp = 12;
+  }
+  Relation relation = 20;
+  uint32 usetime = 21;
+}
+
+message Relation
+{
+  uint32 item1 = 1;
+  uint32 item2 = 2;
+  uint32 item3 = 3;
+}

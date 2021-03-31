@@ -1,0 +1,21 @@
+[
+	{
+		"name": "一键选中变更表格",
+		"by_sheets": [
+			{"file": "excel/quests.xlsx"},
+			{"file": "excel/objects.xlsx"}
+		],
+		"default_selected": false,
+		"style": "outline-primary"
+	},
+	{
+		"name": "检查变化表格",
+		"action": ["unselect_all", "script: diffchange", "script: delay", "reload"],
+		"style": "outline-primary"
+	},
+	{
+		"name": "Reload",
+		"action": ["reload"],
+		"style": "outline-primary"
+	}
+]

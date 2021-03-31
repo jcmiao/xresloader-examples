@@ -1,0 +1,138 @@
+[2021-03-31 14:33:30.175]:[INFO ] xresloader - argument : --stdin
+[2021-03-31 14:33:30.183]:[INFO ] xresloader - tags: 
+[2021-03-31 14:33:30.185]:[INFO ] xresloader - argument : -p
+[2021-03-31 14:33:30.185]:[INFO ] xresloader - argument : protobuf
+[2021-03-31 14:33:30.185]:[INFO ] xresloader - argument : -f
+[2021-03-31 14:33:30.185]:[INFO ] xresloader - argument : ../common/sample.pb
+[2021-03-31 14:33:30.185]:[INFO ] xresloader - argument : -o
+[2021-03-31 14:33:30.186]:[INFO ] xresloader - argument : sample-data
+[2021-03-31 14:33:30.186]:[INFO ] xresloader - argument : --field_tags=client
+[2021-03-31 14:33:30.186]:[INFO ] xresloader - argument : -t
+[2021-03-31 14:33:30.186]:[INFO ] xresloader - argument : bin
+[2021-03-31 14:33:30.186]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.186]:[INFO ] xresloader - argument : DataSource=excel/role_tables.xlsx|upgrade_10001|3,1
+[2021-03-31 14:33:30.186]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.186]:[INFO ] xresloader - argument : ProtoName=role_upgrade_cfg
+[2021-03-31 14:33:30.186]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.187]:[INFO ] xresloader - argument : OutputFile=role_upgrade_cfg.bin
+[2021-03-31 14:33:30.187]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.187]:[INFO ] xresloader - argument : KeyRow=2
+[2021-03-31 14:33:30.187]:[INFO ] xresloader - tags: client
+[2021-03-31 14:33:30.513]:[TRACE] xresloader - Convert from "excel/role_tables.xlsx|upgrade_10001" to "role_upgrade_cfg.bin" started (protocol=role_upgrade_cfg) ...
+[2021-03-31 14:33:30.638]:[INFO ] xresloader - Convert from "excel/role_tables.xlsx|upgrade_10001" to "role_upgrade_cfg.bin" success.(charset: utf-8, 11 data row(s))
+[2021-03-31 14:33:30.638]:[INFO ] xresloader - argument : -p
+[2021-03-31 14:33:30.638]:[INFO ] xresloader - argument : protobuf
+[2021-03-31 14:33:30.638]:[INFO ] xresloader - argument : -f
+[2021-03-31 14:33:30.639]:[INFO ] xresloader - argument : ../common/sample.pb
+[2021-03-31 14:33:30.639]:[INFO ] xresloader - argument : -o
+[2021-03-31 14:33:30.639]:[INFO ] xresloader - argument : sample-data
+[2021-03-31 14:33:30.639]:[INFO ] xresloader - argument : --field_tags=client
+[2021-03-31 14:33:30.639]:[INFO ] xresloader - argument : -t
+[2021-03-31 14:33:30.639]:[INFO ] xresloader - argument : json
+[2021-03-31 14:33:30.639]:[INFO ] xresloader - argument : -n
+[2021-03-31 14:33:30.639]:[INFO ] xresloader - argument : /(?i)\.bin$/\.json/
+[2021-03-31 14:33:30.640]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.640]:[INFO ] xresloader - argument : DataSource=excel/role_tables.xlsx|upgrade_10001|3,1
+[2021-03-31 14:33:30.640]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.640]:[INFO ] xresloader - argument : ProtoName=role_upgrade_cfg
+[2021-03-31 14:33:30.640]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.640]:[INFO ] xresloader - argument : OutputFile=role_upgrade_cfg.bin
+[2021-03-31 14:33:30.640]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.641]:[INFO ] xresloader - argument : KeyRow=2
+[2021-03-31 14:33:30.641]:[INFO ] xresloader - tags: client
+[2021-03-31 14:33:30.642]:[TRACE] xresloader - Convert from "excel/role_tables.xlsx|upgrade_10001" to "role_upgrade_cfg.json" started (protocol=role_upgrade_cfg) ...
+[2021-03-31 14:33:30.653]:[INFO ] xresloader - Convert from "excel/role_tables.xlsx|upgrade_10001" to "role_upgrade_cfg.json" success.(charset: utf-8, 11 data row(s))
+[2021-03-31 14:33:30.653]:[INFO ] xresloader - argument : -p
+[2021-03-31 14:33:30.653]:[INFO ] xresloader - argument : protobuf
+[2021-03-31 14:33:30.653]:[INFO ] xresloader - argument : -f
+[2021-03-31 14:33:30.653]:[INFO ] xresloader - argument : ../common/sample.pb
+[2021-03-31 14:33:30.653]:[INFO ] xresloader - argument : -o
+[2021-03-31 14:33:30.654]:[INFO ] xresloader - argument : sample-data
+[2021-03-31 14:33:30.654]:[INFO ] xresloader - argument : --field_tags=client
+[2021-03-31 14:33:30.654]:[INFO ] xresloader - argument : -t
+[2021-03-31 14:33:30.654]:[INFO ] xresloader - argument : bin
+[2021-03-31 14:33:30.654]:[INFO ] xresloader - argument : --enable-empty-list
+[2021-03-31 14:33:30.654]:[INFO ] xresloader - argument : --enable-empty-list
+[2021-03-31 14:33:30.654]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.654]:[INFO ] xresloader - argument : DataSource=excel/objects.xlsx|objects|4,1
+[2021-03-31 14:33:30.654]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.654]:[INFO ] xresloader - argument : ProtoName=objects_cfg
+[2021-03-31 14:33:30.654]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.655]:[INFO ] xresloader - argument : OutputFile=objects_cfg.bin
+[2021-03-31 14:33:30.655]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.655]:[INFO ] xresloader - argument : KeyRow=2
+[2021-03-31 14:33:30.655]:[INFO ] xresloader - tags: client
+[2021-03-31 14:33:30.704]:[TRACE] xresloader - Convert from "excel/objects.xlsx|objects" to "objects_cfg.bin" started (protocol=objects_cfg) ...
+[2021-03-31 14:33:30.707]:[INFO ] xresloader - cmd's field_tags: [Ljava.lang.String;@5dc3fcb7
+[2021-03-31 14:33:30.707]:[INFO ] xresloader - cmd one tag is client
+[2021-03-31 14:33:30.707]:[INFO ] xresloader - config tag is server
+[2021-03-31 14:33:30.724]:[INFO ] xresloader - Convert from "excel/objects.xlsx|objects" to "objects_cfg.bin" success.(charset: utf-8, 13 data row(s))
+[2021-03-31 14:33:30.724]:[INFO ] xresloader - argument : -p
+[2021-03-31 14:33:30.724]:[INFO ] xresloader - argument : protobuf
+[2021-03-31 14:33:30.724]:[INFO ] xresloader - argument : -f
+[2021-03-31 14:33:30.724]:[INFO ] xresloader - argument : ../common/sample.pb
+[2021-03-31 14:33:30.724]:[INFO ] xresloader - argument : -o
+[2021-03-31 14:33:30.724]:[INFO ] xresloader - argument : sample-data
+[2021-03-31 14:33:30.725]:[INFO ] xresloader - argument : --field_tags=client
+[2021-03-31 14:33:30.725]:[INFO ] xresloader - argument : -t
+[2021-03-31 14:33:30.725]:[INFO ] xresloader - argument : json
+[2021-03-31 14:33:30.725]:[INFO ] xresloader - argument : -n
+[2021-03-31 14:33:30.725]:[INFO ] xresloader - argument : /(?i)\.bin$/\.json/
+[2021-03-31 14:33:30.725]:[INFO ] xresloader - argument : --enable-empty-list
+[2021-03-31 14:33:30.725]:[INFO ] xresloader - argument : --enable-empty-list
+[2021-03-31 14:33:30.726]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.726]:[INFO ] xresloader - argument : DataSource=excel/objects.xlsx|objects|4,1
+[2021-03-31 14:33:30.726]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.726]:[INFO ] xresloader - argument : ProtoName=objects_cfg
+[2021-03-31 14:33:30.726]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.726]:[INFO ] xresloader - argument : OutputFile=objects_cfg.bin
+[2021-03-31 14:33:30.726]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.726]:[INFO ] xresloader - argument : KeyRow=2
+[2021-03-31 14:33:30.726]:[INFO ] xresloader - tags: client
+[2021-03-31 14:33:30.727]:[TRACE] xresloader - Convert from "excel/objects.xlsx|objects" to "objects_cfg.json" started (protocol=objects_cfg) ...
+[2021-03-31 14:33:30.728]:[INFO ] xresloader - cmd's field_tags: [Ljava.lang.String;@6b3871d6
+[2021-03-31 14:33:30.728]:[INFO ] xresloader - cmd one tag is client
+[2021-03-31 14:33:30.728]:[INFO ] xresloader - config tag is server
+[2021-03-31 14:33:30.736]:[INFO ] xresloader - Convert from "excel/objects.xlsx|objects" to "objects_cfg.json" success.(charset: utf-8, 13 data row(s))
+[2021-03-31 14:33:30.736]:[INFO ] xresloader - argument : -p
+[2021-03-31 14:33:30.736]:[INFO ] xresloader - argument : protobuf
+[2021-03-31 14:33:30.736]:[INFO ] xresloader - argument : -f
+[2021-03-31 14:33:30.737]:[INFO ] xresloader - argument : ../common/sample.pb
+[2021-03-31 14:33:30.737]:[INFO ] xresloader - argument : -o
+[2021-03-31 14:33:30.737]:[INFO ] xresloader - argument : sample-data
+[2021-03-31 14:33:30.737]:[INFO ] xresloader - argument : --field_tags=client
+[2021-03-31 14:33:30.737]:[INFO ] xresloader - argument : -t
+[2021-03-31 14:33:30.737]:[INFO ] xresloader - argument : bin
+[2021-03-31 14:33:30.737]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.737]:[INFO ] xresloader - argument : DataSource=excel/quests.xlsx|quests|3,1
+[2021-03-31 14:33:30.737]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.737]:[INFO ] xresloader - argument : ProtoName=quests_cfg
+[2021-03-31 14:33:30.737]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.738]:[INFO ] xresloader - argument : OutputFile=quests_cfg.bin
+[2021-03-31 14:33:30.738]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.738]:[INFO ] xresloader - argument : KeyRow=2
+[2021-03-31 14:33:30.738]:[INFO ] xresloader - tags: client
+[2021-03-31 14:33:30.758]:[TRACE] xresloader - Convert from "excel/quests.xlsx|quests" to "quests_cfg.bin" started (protocol=quests_cfg) ...
+[2021-03-31 14:33:30.762]:[INFO ] xresloader - Convert from "excel/quests.xlsx|quests" to "quests_cfg.bin" success.(charset: utf-8, 13 data row(s))
+[2021-03-31 14:33:30.763]:[INFO ] xresloader - argument : -p
+[2021-03-31 14:33:30.763]:[INFO ] xresloader - argument : protobuf
+[2021-03-31 14:33:30.763]:[INFO ] xresloader - argument : -f
+[2021-03-31 14:33:30.763]:[INFO ] xresloader - argument : ../common/sample.pb
+[2021-03-31 14:33:30.763]:[INFO ] xresloader - argument : -o
+[2021-03-31 14:33:30.763]:[INFO ] xresloader - argument : sample-data
+[2021-03-31 14:33:30.763]:[INFO ] xresloader - argument : --field_tags=client
+[2021-03-31 14:33:30.763]:[INFO ] xresloader - argument : -t
+[2021-03-31 14:33:30.763]:[INFO ] xresloader - argument : json
+[2021-03-31 14:33:30.763]:[INFO ] xresloader - argument : -n
+[2021-03-31 14:33:30.764]:[INFO ] xresloader - argument : /(?i)\.bin$/\.json/
+[2021-03-31 14:33:30.764]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.764]:[INFO ] xresloader - argument : DataSource=excel/quests.xlsx|quests|3,1
+[2021-03-31 14:33:30.764]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.764]:[INFO ] xresloader - argument : ProtoName=quests_cfg
+[2021-03-31 14:33:30.764]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.764]:[INFO ] xresloader - argument : OutputFile=quests_cfg.bin
+[2021-03-31 14:33:30.764]:[INFO ] xresloader - argument : -m
+[2021-03-31 14:33:30.764]:[INFO ] xresloader - argument : KeyRow=2
+[2021-03-31 14:33:30.764]:[INFO ] xresloader - tags: client
+[2021-03-31 14:33:30.765]:[TRACE] xresloader - Convert from "excel/quests.xlsx|quests" to "quests_cfg.json" started (protocol=quests_cfg) ...
+[2021-03-31 14:33:30.767]:[INFO ] xresloader - Convert from "excel/quests.xlsx|quests" to "quests_cfg.json" success.(charset: utf-8, 13 data row(s))

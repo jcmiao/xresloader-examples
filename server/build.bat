@@ -1,0 +1,1 @@
+g++ -g -Wall -ID:\src\protobuf-3.15.1\src -I./pbsrc -I./cfgsrc -LD:\src\protobuf-3.15.1\cmake -o test ./pbsrc/*.cc cfgsrc/*.cpp *.cpp -lprotobuf

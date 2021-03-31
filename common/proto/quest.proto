@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+import "xresloader.proto";
+import "xrescode_extensions_v3.proto";
+import "base.proto";
+// xresloader的发布页面 https://github.com/xresloader/xresloader/releases 下载 protocols.zip ，即可获取xresloader.proto
+
+option cc_enable_arenas = true;
+
+enum ItemType2
+{
+  TYPE_UNKNOWN = 0;
+  TYPE_D = 4;
+  TYPE_E = 5;
+  TYPE_F = 6;
+}
+
+message quests_cfg {
+  option (xrescode.loader) = {
+    file_path : "../config/sample-data/quests_cfg.bin"
+    // file_list: "filelist.txt"
+    indexes : {
+        fields : "Id"
+        index_type : EN_INDEX_KV 
+    }
+    indexes : {
+        fields : "Type"
+        index_type : EN_INDEX_IL
+    }
+    // 允许多个索引，索引命名是所有的 [fields 字段].join("_")，也可以通过name属性自定义
+    tags : "client"
+    tags : "server"
+  };
+
+  uint32 Id = 1;
+  uint32 Type = 2;
+  string Name = 3;
+  string Desc = 4;
+
+  message SubMsg
+  {
+    uint32 Param1 = 1;
+    uint32 Param2 = 2;
+    SubSubMsg Param3 = 3;
+  }
+
+  SubMsg Param = 5;
+
+  message SubSubMsg
+  {
+    uint32 p1 = 1;
+    uint64 p2 = 2;
+    ItemType2 it2 = 3;
+  }
+
+  ItemType2 it2 = 6;
+
+  enum ItemType3
+  {
+    TYPE_UNKNOWN = 0;
+    TYPE_G = 7;
+    TYPE_H = 8;
+    TYPE_I = 9;
+  }
+  ItemType3 it3 = 7;
+
+  base.ItemType it1 = 8;
+}
+
+message TestBase
+{
+  uint32 value = 1;
+  base.Base bbbbb = 2;
+}
