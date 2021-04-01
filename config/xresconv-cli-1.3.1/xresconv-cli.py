@@ -355,7 +355,7 @@ def load_list_item_nodes(lis):
                 conv_item_obj['enable'] = False
             else:
                 item_groups = item.attrib['class'].split(" ")
-                enable = options.group in item.attrib['class'].split(" ")
+                enable = options.group in item_groups
                 conv_item_obj['enable'] = enable
             
         xconv_options['item'].append(conv_item_obj)
