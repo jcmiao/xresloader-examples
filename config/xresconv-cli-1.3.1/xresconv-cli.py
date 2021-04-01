@@ -117,6 +117,15 @@ parser.add_argument(
     default=None)
 
 parser.add_argument(
+    "-e",
+    "--field_tags",
+    action="store",
+    help="export fields by tags",
+    metavar="",
+    dest="field_tags",
+    default=None)
+
+parser.add_argument(
     "convert_list_file",
     nargs='+',
     help="convert list file(xml) and options will be passed to xresloader.jar",
@@ -243,8 +252,8 @@ def load_global_options(gns):
 
             elif tag_name == 'rename':
                 xconv_options['args']['-n'] = '"' + trip_value + '"'
-            elif tag_name == 'field_tags':
-                xconv_options['args'][''] = '"' + trip_value + '"'
+            # elif tag_name == 'field_tags':
+            #     xconv_options['args'][''] = '"' + trip_value + '"'
 
             elif tag_name == 'option':
                 xconv_options['ext_args_l1'].append(trip_value)
@@ -268,9 +277,9 @@ if xconv_xml_global_nodes and len(xconv_xml_global_nodes) > 0:
 
 # ----------------------------------------- 全局配置解析 -----------------------------------------
 
-conv_list_dir = os.path.dirname(xconv_options['conv_list'])
-if conv_list_dir:
-    os.chdir(conv_list_dir)
+# conv_list_dir = os.path.dirname(xconv_options['conv_list'])
+# if conv_list_dir:
+#     os.chdir(conv_list_dir)
 os.chdir(xconv_options['work_dir'])
 
 conv_start_msg = ('[NOTICE] start to run conv cmds on dir: {0}' + os.linesep).format(os.getcwd())
@@ -285,6 +294,7 @@ else:
         cprintf_stdout([print_style.FC_YELLOW], conv_start_msg)
 
 if not os.path.exists(xconv_options['xresloader_path']):
+    print(os.getcwd())
     cprintf_stderr([print_style.FC_RED],
                    '[ERROR] xresloader not found.({0})' + os.linesep,
                    xconv_options['xresloader_path'])
@@ -368,6 +378,9 @@ if xconv_xml_list_item_nodes and len(xconv_xml_list_item_nodes) > 0:
 # ========================================= 生成转换命令 =========================================
 if not xconv_options['data_version'] is None:
     xconv_options['args']['-a'] = '"' + str(xconv_options['data_version']) + '"'
+
+if options.field_tags:
+    xconv_options['args']['-e'] = '"' + options.field_tags + '"'
 
 ##### 全局命令和配置
 global_cmd_args_map = xconv_options['args'].copy()
