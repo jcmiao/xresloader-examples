@@ -126,6 +126,15 @@ parser.add_argument(
     default=None)
 
 parser.add_argument(
+    "-o",
+    "--bin_out_dir",
+    action="store",
+    help="export binary data to the path",
+    metavar="",
+    dest="bin_out_dir",
+    default=None)
+
+parser.add_argument(
     "convert_list_file",
     nargs='+',
     help="convert list file(xml) and options will be passed to xresloader.jar",
@@ -381,6 +390,9 @@ if not xconv_options['data_version'] is None:
 
 if options.field_tags:
     xconv_options['args']['-e'] = '"' + options.field_tags + '"'
+
+if options.bin_out_dir:
+    xconv_options['args']['-o'] = '"' + options.bin_out_dir + '"'
 
 ##### 全局命令和配置
 global_cmd_args_map = xconv_options['args'].copy()
