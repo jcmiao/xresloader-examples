@@ -1,2 +1,4 @@
 config/xresloader.run.log
 server/test.exe
+tools/genstruct.exe
+.vscode/settings.json

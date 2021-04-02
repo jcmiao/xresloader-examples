@@ -26,6 +26,7 @@ extend google.protobuf.FieldOptions {
     optional int32  field_ratio       = 1013; // 字段放大倍数，可用于验证器名字
     optional string field_separator   = 1014; // Plain模式字段分隔符（默认为: ,;|）
     optional bool   field_required    = 1015; // 字段标记为必须，相当于 pb2 的required
+    optional string field_tags        = 1016; // 标记字段导出标签，默认全部导出，否则指定标签时才导出
 
     // 用户自定义扩展字段请使用 2000 to max;
     // extensions 1000 to max;
